@@ -1,0 +1,25 @@
+import os, winshell
+from win32com.client import Dispatch
+
+rootdrive = os.getenv("SystemDrive")
+
+print (rootdrive+"\\majkab0t\\main\\Valorant_XP_Bot.py")
+
+
+desktop = winshell.desktop()
+path = os.path.join(desktop, "majka.lnk")
+target = (rootdrive+"\\majkab0t\\main\\Valorant_XP_Bot.py")
+wDir = (rootdrive+"\\majkab0t\\main\\")
+icon = (rootdrive+"\\majkab0t\\main\\icon.ico")
+
+
+
+
+shell = Dispatch('WScript.Shell')
+shortcut = shell.CreateShortCut(path)
+shortcut.Targetpath = target
+shortcut.WorkingDirectory = wDir
+shortcut.IconLocation = icon
+shortcut.save()
+
+
